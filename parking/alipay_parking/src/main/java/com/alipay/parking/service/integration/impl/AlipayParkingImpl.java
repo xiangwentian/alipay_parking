@@ -48,8 +48,7 @@ public class AlipayParkingImpl implements IAlipayParking {
 			// 注:非必填项可用双绰号""代替
 			param.put("parking_id", params.get("parking_id"));// 停车场id
 			param.put("car_number", params.get("car_number"));// 车牌号
-			param.put("in_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd
-													// HH:mm:ss"
+			param.put("in_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd  HH:mm:ss"
 
 			// 参数需要再填写
 			System.out.println("组织的参数json形式：" + JSONObject.toJSONString(param));
@@ -88,8 +87,7 @@ public class AlipayParkingImpl implements IAlipayParking {
 			// 注:非必填项可用双绰号""代替
 			param.put("parking_id", params.get("parking_id"));// 停车场id
 			param.put("car_number", params.get("car_number"));// 车牌号
-			param.put("out_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd
-													// HH:mm:ss"
+			param.put("out_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd HH:mm:ss"
 
 			// 参数需要再填写
 			System.out.println("组织的参数json形式：" + JSONObject.toJSONString(param));
@@ -116,7 +114,6 @@ public class AlipayParkingImpl implements IAlipayParking {
 		try {
 			// 实例化客户端
 			AlipayClient alipayClient = aliPayUtil.getInstance();
-			// 实例化具体API对应的request类,类名称和接口名称对应,当前调用接口名称：alipay.open.public.template.message.industry.modify
 			AlipayEcoMycarParkingVehicleQueryRequest request = new AlipayEcoMycarParkingVehicleQueryRequest();
 			// SDK已经封装掉了公共参数，这里只需要传入业务参数
 			// 此次只是参数展示，未进行字符串转义，实际情况下请转义
@@ -170,7 +167,6 @@ public class AlipayParkingImpl implements IAlipayParking {
 			AlipayClient alipayClient = aliPayUtil.getInstance();
 
 			// 实例化具体API对应的request类,类名称和接口名称对应,
-			// alipay.eco.mycar.parking.order.sync
 			AlipayEcoMycarParkingOrderSyncRequest request = new AlipayEcoMycarParkingOrderSyncRequest();
 
 			// SDK已经封装掉了公共参数，这里只需要传入业务参数
