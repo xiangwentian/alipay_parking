@@ -1,0 +1,18 @@
+分层结构
+公共方法和工具类存放在com.alipay.parking.common
+控制层com.alipay.parking.controller
+对外调用的接口com.alipay.parking.service.integration
+对外调用的接口实现类com.alipay.parking.service.integration.impl
+配置文件位置/ParkingDemo/src/main/resources/META-INF
+
+测试类和Junit在路径com.alipay.parking.test
+测试配置文件/ParkingDemo/src/test/resources/META-INF
+
+页面存放位置/ParkingDemo/src/main/webapp/pages
+
+web.xml存放在/ParkingDemo/src/main/webapp/WEB-INF/web.xml
+
+注：config.properties里配置成自己的密钥和相应数据，需要配置的参数如下
+alipay.app_id 应用id
+alipay.app.private.key 应用私钥
+alipay.public.key 和生成的支付宝公钥对比一下，笔者使用的是RSA密钥生成的支付宝公钥

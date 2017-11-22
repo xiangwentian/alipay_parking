@@ -4,4 +4,7 @@
   <artifactId>parking</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <modules>
+  	<module>alipay_parking</module>
+  </modules>
 </project>
