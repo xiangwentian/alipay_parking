@@ -47,4 +47,30 @@ public class ParkingConfigController extends baseController {
         String returnMsg = iAlipayConfig.configSet(params);
         return returnMsg;
     }
+
+    /**
+     * 创建停车场
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("/creaceParking")
+    public String creaceParking(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, String> params = super.getParametersFromPage(request);
+        String isSuccess = iAlipayConfig.parkingCreate(params);
+        return isSuccess;
+    }
+    
+    /**
+     * 修改停车场
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("/updateParking")
+    public String updateParking(HttpServletRequest request, HttpServletResponse response){
+        Map<String, String> params = super.getParametersFromPage(request);
+        String isSuccess = iAlipayConfig.parkingUpdate(params);
+        return isSuccess;
+    }
 }
