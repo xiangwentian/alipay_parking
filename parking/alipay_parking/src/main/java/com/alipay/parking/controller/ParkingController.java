@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alipay.parking.service.integration.IAlipayParking;
 
@@ -33,7 +34,7 @@ public class ParkingController extends baseController {
      * @return
      */
     @RequestMapping("/carEnterInfo")
-    public String carEnterInfo(HttpServletRequest request, HttpServletResponse response) {
+    public @ResponseBody String carEnterInfo(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = super.getParametersFromPage(request);
         String isSuccess = iAlipayParking.carEnterInfo(params);
         return isSuccess;
@@ -46,7 +47,7 @@ public class ParkingController extends baseController {
      * @return
      */
     @RequestMapping("/carExitInfo")
-    public String carExitInfo(HttpServletRequest request, HttpServletResponse response) {
+    public @ResponseBody String carExitInfo(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = super.getParametersFromPage(request);
         String isSuccess = iAlipayParking.carExitInfo(params);
         return isSuccess;
@@ -59,7 +60,7 @@ public class ParkingController extends baseController {
      * @return
      */
     @RequestMapping("/vehicleQuery")
-    public String vehicleQuery(HttpServletRequest request, HttpServletResponse response) {
+    public @ResponseBody String vehicleQuery(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = super.getParametersFromPage(request);
         String isSuccess = iAlipayParking.vehicleQuery(params);
         return isSuccess;
@@ -72,7 +73,7 @@ public class ParkingController extends baseController {
      * @return
      */
     @RequestMapping("/orderSync")
-    public String orderSync(HttpServletRequest request, HttpServletResponse response) {
+    public @ResponseBody String orderSync(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = super.getParametersFromPage(request);
         String isSuccess = iAlipayParking.orderSync(params);
         return isSuccess;
@@ -85,7 +86,7 @@ public class ParkingController extends baseController {
      * @return
      */
     @RequestMapping("/orderUpdate")
-    public String orderUpdate(HttpServletRequest request, HttpServletResponse response) {
+    public @ResponseBody String orderUpdate(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = super.getParametersFromPage(request);
         String isSuccess = iAlipayParking.orderUpdate(params);
         return isSuccess;
