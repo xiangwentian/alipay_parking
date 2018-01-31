@@ -20,13 +20,18 @@ import com.alipay.parking.service.integration.IAlipayParking;
  * 使用场景说明：
  */
 @Controller
-@RequestMapping("/parking")
+@RequestMapping("/parkingController")
 public class ParkingController extends baseController {
     private static final Logger logger = LoggerFactory.getLogger("parking");// 信息日志
 
     @Resource
     private IAlipayParking iAlipayParking; // 逻辑业务处理
 
+    @RequestMapping("/toIndex")
+    public String toIndex(HttpServletRequest request, HttpServletResponse response){
+    	return "index";
+    }
+    
     /**
      * 入场
      * @param request

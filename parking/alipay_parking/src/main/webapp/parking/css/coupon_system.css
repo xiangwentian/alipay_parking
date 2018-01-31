@@ -1,0 +1,305 @@
+input[type=checkbox], input[type=radio]{
+	position: initial;
+	text-indent: 0;
+	opacity: 1;
+	width: auto;
+	height: auto;
+	margin-top: 5px;
+	margin-right: 4px;
+	float: left;
+}
+.coupon_login .loginbox {
+	height: 250px!important;
+	/*background: url(../img/u831.png) no-repeat left top;*/	
+}
+.coupon_So .form-group label{
+	height: 30px;
+	line-height: 30px;
+	margin-left:8px;
+	width:100px;
+	margin-bottom:0;
+}
+.coupon_So .form-group{
+	padding-bottom: 10px;
+}
+.form-inline .form-control ,.form-horizontal .form-control{
+    height: 30px;
+	width: 150px;
+    padding: 0px 0px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #969696;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 2px !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.btn-wid{
+	width: 70px;
+	margin-bottom:0;
+	float:left;
+	margin-right:10px;
+}
+.btn-sel{
+	display: inline;
+	border-radius: 2px !important;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,.05);
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+.div-edit{
+	margin-left:7px;
+	clear: both;/*去除浮动*/
+	height: auto;
+	overflow: hidden;/*隐藏*/
+}
+.a_sty{
+	color: #288df0;
+	cursor: pointer;
+}
+.form-control.date-picker{
+	padding-left: 22px;
+	width:173px;
+	padding-right: 8px;
+	background: url(../../img/icon_rili.png) 1px center no-repeat;
+}
+.table .btn{
+	margin-bottom: 3px;
+}
+.coupon_dialog{
+	display: none;
+}
+.coupon_diaTitle{
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.coupon_diaTitle .fa{
+	color: #5db2ff;
+	margin-right: 10px;
+}
+.coupon_cont{
+	line-height: 26px;
+	
+}
+/*.form-horizontal select.form-control{
+	width:auto;
+}*/
+.well .header{
+	padding: 10px 12px;
+}
+.well{
+	padding:12px;
+}
+.wizard ul li .step{
+	margin-right: 0;
+}
+.wizard.wizard-wired ul li{
+	width:33.3333%;
+}
+.wizard.wizard-wired{
+	margin-bottom: 25px; 
+	padding-bottom: 20px;
+}
+.display_inline{
+	display: inline-block;
+}
+.text-widthauto{
+	/*width:auto;*/
+}
+.btn-blueword{
+	border: 1px solid #5db2ff;
+	color:#5db2ff;
+	background: #fff!important;
+}
+.btn-gray{
+	background: #ccc!important;
+	color: #fff;
+}
+.coupon_exit{
+	line-height: 40px; 
+	color: #fff;
+}
+.coupon_exit a{
+	color: #fff;
+}
+.copuon_indextit{
+	line-height: 36px;
+}
+.page-sidebar .sidebar-menu li:hover,.page-sidebar .sidebar-menu .submenu li a:hover,
+.page-sidebar .sidebar-menu>li>a:hover{
+	background: #f0f0f0;
+}
+.page-sidebar.menu-compact .sidebar-menu>li>.submenu>li>a{
+	padding-left: 34px;
+}
+.space-nowrap{
+	white-space: nowrap;
+}
+textarea.coupon_textarea{
+	line-height: normal; 
+	border: 0; 
+	width:300px; 
+	padding: 0;
+	resize: none;
+	box-shadow: none;
+	padding: 0;
+	color: #444;
+	margin-top: 4px;
+}
+textarea.coupon_textarea:focus{
+	border:0;
+	box-shadow: none;
+}
+.layui-layer-btn{
+	text-align: center;
+	background: #f8f8f8;
+}
+.dialog_create{
+	display: none;
+}
+.modal-coupon .modal-header{
+	color: #53a93f;
+	border-bottom: 3px solid #a0d468;
+}
+.social-buttons img{
+	width: 50px;
+	height: 50px;
+}
+.login-container .loginbox .loginbox-or .or{
+	width:100px;
+	left: -webkit-calc(50% - 50px);
+    left: -moz-calc(50% - 50px);
+    left: calc(50% - 50px);
+}
+.login-container .loginbox .loginbox-social{
+	margin-top: 20px;
+}
+.login-container .loginbox .loginbox-social .social-buttons img{
+	float: left;
+	_display: inline;
+}
+.dialog_code{
+	text-align: center;
+	width:220px;
+	margin: 10px auto;
+	height: 220px;
+	background: #f0f0f0;
+	border:1px dashed #ccc;
+	padding: 10px;
+}
+.barbox dd.last{
+	color:#999;
+}
+.barbox dd.barline{
+	width:400px;
+	background:#f0f0f0; 
+	height:16px;
+	overflow:hidden;
+	border-radius:8px;
+	margin: 0px auto;
+}
+.barbox dd.barline div.charts{
+	height:16px;
+	overflow:hidden;
+	background:#1E9FFF;
+	border-radius:8px;
+}
+.cou_throwdelivery{
+	line-height: 35px;
+	display: none;
+}
+.homebody{
+	background: #b6e3ff url(../../img/bg.jpg) left bottom no-repeat;
+	background-size:100% 100%;
+}
+body.homebody:before{
+	background: none;
+}
+.homebodytitle{
+	display: block;
+	margin: 100px auto 0;
+}
+.color_blue{
+	color: #6abce2;
+}
+.page-sidebar{
+	width:205px;
+}
+.page-sidebar:before{
+	width:200px;
+}
+.page-content{
+	margin-left: 205px;
+}
+.table thead>tr>th{
+	font-size: 12px;
+}
+body,table{
+	font-size: 12px;
+}
+.table th{
+	white-space: nowrap;
+}
+.result-div{
+	overflow-x:auto;
+}
+.table>tbody>tr>td{
+	vertical-align: middle;
+}
+.coupon-data-count,.coupon_data_count{
+	float: left;
+	margin-top: 10px;
+	line-height: 30px;
+}
+.form-horizontal .form-inline .form-control, .form-horizontal .form-control{
+	width:100%;
+}
+.form-horizontal .form-inline .form-control, .form-horizontal .form-telpre{
+	width:27%;
+	height: 30px;
+}
+.form-horizontal .form-inline .form-control, .form-horizontal .form-telsuf{
+	width:67%;
+	height: 30px;
+}
+.form-checkbox{
+	text-align: right;
+}
+.form-checkbox .fa{
+	color: #5db2ff;
+	font-size: 16px;
+	margin-top: 2px;
+}
+.form-btn .btn{
+	margin: 0 15px;
+}
+.btn_xwt{
+	width: 60%;
+}
+.blue_xwt{
+	color: #969696;
+}
+.result-div{
+	margin-bottom:10px;
+}
+.ui-paging-container select{
+	padding:0;
+	font-size: 12px;
+	height:22px;
+}
+.ui-paging-container li {
+    line-height: 15px;
+    height: 22px;
+}
+.ui-paging-container li.ui-paging-toolbar input{
+	height:22px;
+	line-height:22px;
+}
+.ui-paging-container li.ui-paging-toolbar a{
+	height:22px;
+}

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">-->
+
+    <!--Basic Styles-->
+    <link href="../../parking/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../parking/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <!--Beyond styles-->
+    <link href="../../parking/assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="../../parking/css/paging.css" rel="stylesheet" type="text/css" />
+   
+    <link href="../../parking/css/coupon_system.css" rel="stylesheet" type="text/css" />
+	
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+    <!-- Page Body -->
+    <div class="page-body">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+				<div class="widget-body bordered-bottom bordered-blue coupon_So">
+					<form class="form-inline" role="form" id="choiceInfo">
+					<div>
+						<div class="form-group ">
+							<label>订单号：</label> 
+							<input type="text" class="form-control" value="" id="benchmarkISV">
+						</div>
+						<div class="form-group ">
+							<label>停车场ID：</label> 
+							<input type="text" class="form-control" value="" id="alipayParkingId">
+						</div>
+						<div class="form-group ">
+							<label>POI ID：</label> 
+							<input type="text" class="form-control" value="" id="mapPoiId">
+						</div>
+					</div>
+					<div>
+						<div class="form-group ">
+							<label>基础接入：</label>
+							<select class="form-control" id="baseStatus">
+								<option value="">请选择</option>
+								<option value="1">未审核</option>
+								<option value="0">合格</option>
+								<option value="2">不合格</option>
+								<option value="3">复核合格</option>
+								<option value="4">复核不合格</option>
+							</select><!--未审核/合格/不合格/复核合格/复核不合格-->
+						</div><!-- 0 合格,1 未审核,2 不合格,3 复核合格,4 复核不合格 -->
+						<div class="form-group ">
+							<label>标杆类型：</label>
+							<select class="form-control" id="benchmarkType">
+								<option value="">请选择</option>
+								<option value="0">未接入</option>
+								<option value="1">一类</option>
+								<option value="2">二类</option>
+							</select><!-- 0 未接入,1 一类,2 二类  -->
+						</div>
+						<div class="form-group ">
+							<label>标杆审核：</label>
+							<select class="form-control" id="benchmarkStatus">
+								<option value="">请选择</option>
+								<option value="1">未审核</option>
+								<option value="0">已完成准入</option>
+								<option value="2">已完成方案</option>
+								<option value="3">已完成验收</option>
+								<option value="4">复查不合格</option>
+								<option value="5">复查合格</option>
+							</select><!--未审核/已完成准入/已完成方案/已完成验收/复查合格/复查不合格-->
+						</div><!-- 0已完成准入,1 未审核,2 已完成方案,3 已完成验收,4 复查不合格,5 复查合格 -->
+					</div>
+					<div class="div-edit">
+						<button type="button" class="btn btn-info btn-wid" onclick="test()">查询</button>
+						<button type="button" class="btn btn-wid" onclick="reset()">重置</button>
+						<!--<select class="btn-sel">
+							<option value="">更多操作</option>
+						</select>-->
+						
+					</div>
+					</form>
+				</div>
+				<div class="well with-footer">
+					<div class="result-div">
+						<table class="table table-bordered table-hover table-striped" id="result-table" border="0" cellspacing="0">
+							<thead>
+								<tr>
+									<th class="space-nowrap">序号</th>
+									<th class="space-nowrap">Parking_ID</th>
+									<th class="space-nowrap">名称</th>
+									<th class="space-nowrap">地址</th>
+									<th class="space-nowrap">服务商</th>
+									<th class="space-nowrap">POI ID</th>
+									<th class="space-nowrap">POI 检索地址</th>
+									<th class="space-nowrap">联系电话</th>
+									<th class="space-nowrap">基础接入</th>
+									<!--<th class="space-nowrap">标杆类型</th>-->
+									<th class="space-nowrap">标杆审核</th>
+									<!--<th class="space-nowrap">操作</th>-->
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="change_1_1">
+									<td class="p_num">1</td>
+									<td class="p_id">PI123456789</td>
+									<td class="p_name">虹桥机场1</td>
+									<td class="p_address">上海虹桥1</td>
+									<td class="p_isv">停简单1</td>
+									<td class="p_poiid">12345678901</td>
+									<td class="p_poiaddr">www.19pay.com</td>
+									<td class="p_phone">186013135971</td>
+									<td class="p_base">
+										<a class="a_sty open_parking_base" id="base_1" onclick="open_parking_base('change_1')">未审核&nbsp;</a>
+									</td>
+									<td class="p__change">
+										<a class="a_sty open_parking_change" id="change_1" onclick="open_parking_change('change_1')">未审核&nbsp;</a>
+									</td>
+									<input type="hidden" class="p_type" value="1"/>
+									<input type="hidden" class="p_pid" value="2088123232"/>
+									<input type="hidden" class="p_bencharkStatus" value="2"/>
+									<input type="hidden" class="p_baseStatus" value="1"/>
+								</tr>
+								<tr id="change_2_1">
+									<td class="p_num">2</td>
+									<td class="p_id">PI1234567892</td>
+									<td class="p_name">虹桥机场2</td>
+									<td class="p_address">上海虹桥2</td>
+									<td class="p_isv">停简单2</td>
+									<td class="p_poiid">12345678902</td>
+									<td class="p_poiaddr">www.19pay.com2</td>
+									<td class="p_phone">186013135972</td>
+									<td class="p_base">
+										<a class="a_sty open_parking_base" id="base_2" onclick="open_parking_base('change_2')">未审核&nbsp;</a>
+									</td>
+									<td class="p__change">
+										<a class="a_sty open_parking_change" id="change_2" onclick="open_parking_change('change_2')">未审核&nbsp;</a>
+									</td>
+									<input type="hidden" class="p_type" value="1"/>
+									<input type="hidden" class="p_pid" value="2088123232_2"/>
+									<input type="hidden" class="p_bencharkStatus" value="2"/>
+									<input type="hidden" class="p_baseStatus" value="1"/>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="pageToolbar">
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- /Page Body -->
+            
+    <!--Basic Scripts-->
+    <script src="../../parking/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="../../parking/assets/js/bootstrap.min.js"></script>
+    <!--Beyond Scripts-->
+    <!--<script src="assets/js/beyond.min.js"></script>-->
+    <!--<script src="assets/js/datetime/WdatePicker.js"></script>-->
+	<script src="../../parking/assets/js/layer/layer.js"></script>
+	<script src="../../parking/js/paging.js"></script>
+	<script src="../../parking/js/parking.js"></script>
+
+</body>
+</html>

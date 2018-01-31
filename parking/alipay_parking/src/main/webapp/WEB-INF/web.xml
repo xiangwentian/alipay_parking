@@ -23,25 +23,14 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<servlet>
-		<servlet-name>InitConfigServlet</servlet-name>
-		<servlet-class>com.alipay.eco.mycar.parking.pbizplatform.common.util.InitConfigServlet</servlet-class>
-		<init-param>
-			<param-name>configfile</param-name>
-			<param-value>classpath:META-INF/config.properties</param-value>
-		</init-param>
-		<load-on-startup>2</load-on-startup>
-	</servlet>
-
-	<!-- <filter> <filter-name>sessionPowerFilter</filter-name> <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> 
-		</filter> <filter-mapping> <filter-name>sessionPowerFilter</filter-name> 
-		<url-pattern>/park/*</url-pattern> </filter-mapping> <filter-mapping> <filter-name>sessionPowerFilter</filter-name> 
-		<url-pattern>*.jsp</url-pattern> </filter-mapping> -->
-
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.gif</url-pattern>

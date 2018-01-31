@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>创建停车场</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">-->
+
+    <!--Basic Styles-->
+    <link href="../../parking/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../parking/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../parking/assets/css/weather-icons.min.css" rel="stylesheet" />
+
+    <!--Beyond styles-->
+    <link href="../../parking/assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
+
+    <!--<link href="css/paging.css" rel="stylesheet" type="text/css" />
+    <link href="../../parking/css/actInfo.css" rel="stylesheet" type="text/css" />-->
+    <link href="../../parking/css/coupon_system.css" rel="stylesheet" type="text/css" />
+	
+	
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="../../parking/assets/js/skins.min.js"></script>
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+    <!-- Page Body -->
+    <div class="page-body">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+				<div class="well with-footer">
+					<form class="form-horizontal" role="form">
+						<div class="col-xs-12 bordered-bottom bordered-blue coupon_diaTitle"><span class="fa fa-circle"></span>创建停车场</div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>停车场ID：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="out_parking_id" id="out_parking_id" placeholder="" />
+                            </div>
+                            <div class="col-sm-3">
+                            	
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>停车场名称：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="parking_name" id="parking_name" placeholder="" />
+                            </div>
+                            <div class="col-sm-3">
+                            	
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                        	<label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>停车场地址：
+                            </label>
+                            <div class="col-sm-3">
+								<!--<select class="form-control" name="couponShop" id="couponShop">
+									<option value="">选择品牌商</option>
+									<option value="选择品牌商1">选择品牌商1</option>
+									<option value="选择品牌商2">选择品牌商2</option>
+								</select>-->
+								<input type="text" class="form-control" name="parking_address" id="parking_address" placeholder="" />
+							</div>
+							<div class="col-sm-3">
+                            </div>
+						</div>
+						<div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>停车场类型：
+                            </label>
+                            <div class="col-sm-3">
+								<select class="form-control" name="parking_lot_type" id="parking_lot_type">
+									<option value="">选择类型</option>
+									<option value="1">小区停车场</option>
+									<option value="2">商圈停车场</option>
+									<option value="3">路面停车场</option>
+									<option value="4">园区停车场</option>
+									<option value="5">字楼停车场</option>
+									<option value="6">私人停车场</option>
+								</select>
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>高德POI ID：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="parking_poiid" id="parking_poiid" placeholder="" />
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>客服电话：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="parking_mobile" id="parking_mobile" placeholder="" />
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<span class="red">*</span>支付方式：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="pay_type" id="pay_type" placeholder="" />
+                            </div>
+                            <div class="col-sm-4 blue_xwt">
+                            	注：支付方式（1为支付宝在线缴费，2为支付宝代扣缴费，3当面付)，多种方式以','间隔
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<!--<span class="red">*</span>-->商圈ID：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="shopingmall_id" id="shopingmall_id" placeholder="" />
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<!--<span class="red">*</span>-->收费说明：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="parking_fee_description" id="parking_fee_description" placeholder="小车一小时2元" />
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">
+                            	<!--<span class="red">*</span>-->离场超时时间：
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="time_out" id="time_out" placeholder="15" />
+                            </div>
+                            <div class="col-sm-4 blue_xwt">
+                            	注：用户支付未离场的超时时间(以分钟为单位)
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-2">
+                                <button type="button" class="btn btn-blue btn-block btn_submit btn_xwt">提交</button>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-blue btn-block btn_submit btn_xwt">取消</button>
+                            </div>
+                        </div>
+                    </form>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- /Page Body -->
+    
+    <!--Basic Scripts-->
+    <script src="../../parking/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="../../parking/assets/js/bootstrap.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../../parking/assets/js/beyond.min.js"></script>
+    <script src="../../parking/assets/js/datetime/WdatePicker.js"></script>
+	<script src="../../parking/assets/js/layer/layer.js"></script>
+	
+	<!--<script src="js/shopcoupon_add.js"></script>-->
+    
+
+
+</body>
+<!--  /Body -->
+</html>

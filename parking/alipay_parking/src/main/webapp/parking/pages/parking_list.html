@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">-->
+
+    <!--Basic Styles-->
+    <link href="../../parking/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../parking/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <!--Beyond styles-->
+    <link href="../../parking/assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="../../parking/css/paging.css" rel="stylesheet" type="text/css" />
+   
+    <link href="../../parking/css/coupon_system.css" rel="stylesheet" type="text/css" />
+	
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+    <!-- Page Body -->
+    <div class="page-body">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+				<div class="widget-body bordered-bottom bordered-blue coupon_So">
+					<form class="form-inline" role="form" id="choiceInfo">
+					<div>
+						<div class="form-group ">
+							<label>停车场 ID：</label> 
+							<input type="text" class="form-control" value="" id="parking_id">
+						</div>
+						<div class="form-group ">
+							<label>外部停车场ID：</label> 
+							<input type="text" class="form-control" value="" id="out_parking_id">
+						</div>
+						<div class="form-group ">
+							<label>POI ID：</label> 
+							<input type="text" class="form-control" value="" id="parking_poiid">
+						</div>
+					</div>
+					
+					<div class="div-edit">
+						<button type="button" class="btn btn-info btn-wid" onclick="test()">查询</button>
+						<button type="button" class="btn btn-wid" onclick="reset()">重置</button>
+						<!--<select class="btn-sel">
+							<option value="">更多操作</option>
+						</select>-->
+						
+					</div>
+					</form>
+				</div>
+				<div class="well with-footer">
+					<div class="result-div">
+						<table class="table table-bordered table-hover table-striped" id="result-table" border="0" cellspacing="0">
+							<thead>
+								<tr>
+									<th class="space-nowrap">序号</th>
+									<th class="space-nowrap">停车场ID</th>
+									<th class="space-nowrap">外部停车场ID</th>
+									<th class="space-nowrap">停车场名称</th>
+									<th class="space-nowrap">停车场地址</th>
+									<th class="space-nowrap">停车场类型</th>
+									<th class="space-nowrap">POI ID</th>
+									<th class="space-nowrap">客服电话</th>
+									<th class="space-nowrap">支付方式</th>
+									<th class="space-nowrap">商圈ID</th>
+									<th class="space-nowrap">收费说明</th>
+									<th class="space-nowrap">离场超时时间</th>
+									<th class="space-nowrap">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="change_1_1">
+									<td class="p_num">1</td>
+									<td class="parking_id">PI123456789</td>
+									<td class="out_parking_id">12345</td>
+									<td class="parking_name">虹桥机场1</td>
+									<td class="parking_address">上海虹桥1</td>
+									<td class="parking_lot_type">小区停车场</td>
+									<td class="parking_poiid">12345678901</td>
+									<td class="parking_mobile">186013135971</td>
+									<td class="pay_type">当面付</td>
+									<td class="shopingmall_id">商圈id</td>
+									<td class="parking_fee_description">收款说明：xxx</td>
+									<td class="time_out">超时离场15分钟</td>
+									<td class="">
+										<a class="a_sty open_parking_base" href="parking_creact.html">修改&nbsp;</a>
+									</td>
+								</tr>
+								<tr id="change_2_1">
+									<td class="p_num">2</td>
+									<td class="parking_id">PI123456789</td>
+									<td class="out_parking_id">12345</td>
+									<td class="parking_name">虹桥机场1</td>
+									<td class="parking_address">上海虹桥1</td>
+									<td class="parking_lot_type">小区停车场</td>
+									<td class="parking_poiid">12345678901</td>
+									<td class="parking_mobile">186013135971</td>
+									<td class="pay_type">当面付</td>
+									<td class="shopingmall_id">商圈id</td>
+									<td class="parking_fee_description">收款说明：xxx</td>
+									<td class="time_out">超时离场15分钟</td>
+									<td class="">
+										<a class="a_sty open_parking_base" href="parking_creact.html">修改&nbsp;</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="pageToolbar">
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- /Page Body -->
+            
+    <!--Basic Scripts-->
+    <script src="../../parking/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="../../parking/assets/js/bootstrap.min.js"></script>
+    <!--Beyond Scripts-->
+    <!--<script src="assets/js/beyond.min.js"></script>-->
+    <!--<script src="assets/js/datetime/WdatePicker.js"></script>-->
+	<script src="../../parking/assets/js/layer/layer.js"></script>
+	<script src="../../parking/js/paging.js"></script>
+	<script src="../../parking/js/parking.js"></script>
+
+</body>
+</html>
