@@ -26,7 +26,7 @@
         <dependency>
             <groupId>com.alipay.api</groupId>
             <artifactId>alipay-sdk-java</artifactId>
-            <version>DEV20170627154506</version>
+            <version>ALL20171101201354</version>
         </dependency>
 
         <dependency>
