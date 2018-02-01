@@ -20,7 +20,7 @@ import com.alipay.parking.service.integration.IAlipayParking;
  * 使用场景说明：
  */
 @Controller
-@RequestMapping("/parkingController")
+@RequestMapping("/parking/pages")
 public class ParkingController extends baseController {
     private static final Logger logger = LoggerFactory.getLogger("parking");// 信息日志
 
