@@ -12,3 +12,7 @@ https://docs.open.alipay.com/54/103419
 
 在对接停车平台的过程中，如果对项目有问题或想沟通问题的可邮件我，看到后我会回复大家liuzhuangjob@163.com
 对接入的模块需要补充的也可沟通完善，一起来完善代码，整理规范，服务大家
+
+停车平台有更新，创建、修改停车场时废弃了一些参数，并且增加了高德兴趣点(1509开头的poiid)来判断是否是停车场，获取poiid具体请参考下面链接
+高德poi查询地址：http://lbs.amap.com/api/webservice/guide/api/search/#id
+(typecode是高德兴趣点的类型，1509开头的是停车场类型)
