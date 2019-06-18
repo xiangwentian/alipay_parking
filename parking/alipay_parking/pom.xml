@@ -82,11 +82,14 @@
 			<type>jar</type>
 		</dependency>
 
-        <dependency>
-            <groupId>com.alipay.sdk</groupId>
-            <artifactId>alipay-sdk-java</artifactId>
-            <version>3.3.4.ALL</version>
-        </dependency>
+		<!-- 无感版本，需要签约完停车平台多费率协议后由技术支持提供sdk包 -->
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+			<version>3.4.76.ALL</version>
+		</dependency>
+		<!-- <dependency> <groupId>com.alipay.sdk</groupId> <artifactId>alipay-sdk-java</artifactId> 
+			<version>3.3.4.ALL</version> </dependency> -->
 
 		<dependency>
 			<groupId>log4j</groupId>
