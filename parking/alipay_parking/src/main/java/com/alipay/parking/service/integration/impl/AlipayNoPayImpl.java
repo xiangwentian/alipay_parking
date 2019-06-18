@@ -5,9 +5,12 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.request.AlipayEcoMycarParkingAgreementQueryRequest;
 import com.alipay.api.request.AlipayEcoMycarParkingOrderPayRequest;
@@ -25,34 +28,43 @@ import com.alipay.parking.service.integration.IAlipayNoPay;
  * @Description:代扣接口实现类
  * @date 2019年6月18日
  */
-@Service
+@Service("iAlipayNopay")
 public class AlipayNoPayImpl implements IAlipayNoPay {
+
+	private static final Logger logger = LoggerFactory.getLogger("parking");// 信息日志
 
 	@Resource(name = "aliPayUtil")
 	private AliPayUtil aliPayUtil;
 
-	public String carAgreementQuery(String carNumber) throws Exception {
+	public String carAgreementQuery(String carNumber) {
+
 		AlipayClient alipayClient = aliPayUtil.getInstance();
 		AlipayEcoMycarParkingAgreementQueryRequest request = new AlipayEcoMycarParkingAgreementQueryRequest();
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("car_number", carNumber);
 		request.setBizContent(JSON.toJSONString(param));
 
-		AlipayEcoMycarParkingAgreementQueryResponse response = alipayClient.execute(request);
-		if (response.isSuccess()) {
-			System.out.println("调用成功");
-			// TODO
-			// 获取相应数据
-			Map<String, String> responseParams = response.getParams();
-			return responseParams.get("agreement_status");// 这里只是提供一个思路具体可以自行定义处理
-		} else {
-			System.out.println("调用失败");
-			// TODO
-			return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+		AlipayEcoMycarParkingAgreementQueryResponse response;
+		try {
+			response = alipayClient.execute(request);
+			if (response.isSuccess()) {
+				System.out.println("调用成功");
+				// TODO
+				// 获取相应数据
+				Map<String, String> responseParams = response.getParams();
+				return responseParams.get("agreement_status");// 这里只是提供一个思路具体可以自行定义处理
+			} else {
+				System.out.println("调用失败");
+				// TODO
+				return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+			}
+		} catch (AlipayApiException e) {
+			logger.error("调用车牌查询api接口AlipayApiException异常", e);
 		}
+		return null;
 	}
 
-	public String parkingOrderPay(Map<String, String> params) throws Exception {
+	public String parkingOrderPay(Map<String, String> params) {
 		AlipayClient alipayClient = aliPayUtil.getInstance();
 		AlipayEcoMycarParkingOrderPayRequest request = new AlipayEcoMycarParkingOrderPayRequest();
 		Map<String, String> param = new HashMap<String, String>();
@@ -71,37 +83,49 @@ public class AlipayNoPayImpl implements IAlipayNoPay {
 		param.put("body", params.get("body"));// 订单描述
 		request.setBizContent(JSON.toJSONString(param));
 
-		AlipayEcoMycarParkingOrderPayResponse response = alipayClient.execute(request);
-		if (response.isSuccess()) {
-			System.out.println("调用成功");
-			// 获取相应数据
-			Map<String, String> responseParams = response.getParams();
-			return responseParams.get("trade_no");// 当交易不明确时是拿不到这个交易号的，需要再进行查询
-		} else {
-			System.out.println("调用失败");
-			return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+		AlipayEcoMycarParkingOrderPayResponse response;
+		try {
+			response = alipayClient.execute(request);
+			if (response.isSuccess()) {
+				System.out.println("调用成功");
+				// 获取相应数据
+				Map<String, String> responseParams = response.getParams();
+				return responseParams.get("trade_no");// 当交易不明确时是拿不到这个交易号的，需要再进行查询
+			} else {
+				System.out.println("调用失败");
+				return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+			}
+		} catch (AlipayApiException e) {
+			logger.error("调用订单支付api接口AlipayApiException异常", e);
 		}
+		return null;
 	}
 
-	public String parkingOrderQuery(Map<String, String> params) throws Exception {
+	public String parkingOrderQuery(Map<String, String> params) {
 		AlipayClient alipayClient = aliPayUtil.getInstance();
 		AlipayEcoMycarTradeOrderQueryRequest request = new AlipayEcoMycarTradeOrderQueryRequest();
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("out_biz_trade_no", params.get("out_trade_no"));
 		request.setBizContent(JSON.toJSONString(param));
-		AlipayEcoMycarTradeOrderQueryResponse response = alipayClient.execute(request);
-		if (response.isSuccess()) {
-			System.out.println("调用成功");
-			Map<String, String> responseParams = response.getParams();
-			return responseParams.get("trade_status");
-			// 注：当状态不明确是扣款成功还是失败时，要调用查询代扣接口来确认一下最终状态，建议不要立即查询，延迟几秒，也可以把失败订单放到定时任务或消息中去确认
-		} else {
-			System.out.println("调用失败");
-			return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+		AlipayEcoMycarTradeOrderQueryResponse response;
+		try {
+			response = alipayClient.execute(request);
+			if (response.isSuccess()) {
+				System.out.println("调用成功");
+				Map<String, String> responseParams = response.getParams();
+				return responseParams.get("trade_status");
+				// 注：当状态不明确是扣款成功还是失败时，要调用查询代扣接口来确认一下最终状态，建议不要立即查询，延迟几秒，也可以把失败订单放到定时任务或消息中去确认
+			} else {
+				System.out.println("调用失败");
+				return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+			}
+		} catch (AlipayApiException e) {
+			logger.error("调用订单查询api接口AlipayApiException异常", e);
 		}
+		return null;
 	}
 
-	public String parkingOrderRefund(Map<String, String> params) throws Exception {
+	public String parkingOrderRefund(Map<String, String> params) {
 		AlipayClient alipayClient = aliPayUtil.getInstance();
 		AlipayEcoMycarParkingOrderRefundRequest request = new AlipayEcoMycarParkingOrderRefundRequest();
 		Map<String, String> param = new HashMap<String, String>();
@@ -112,15 +136,21 @@ public class AlipayNoPayImpl implements IAlipayNoPay {
 		param.put("refund_reason", params.get("refund_reason"));// 退款原因
 		request.setBizContent(JSON.toJSONString(param));
 
-		AlipayEcoMycarParkingOrderRefundResponse response = alipayClient.execute(request);
-		if (response.isSuccess()) {
-			System.out.println("调用成功");
-			Map<String, String> responseParams = response.getParams();
-			return responseParams.get("refund_no");// 支付宝退款流水
-		} else {
-			System.out.println("调用失败");
-			return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+		AlipayEcoMycarParkingOrderRefundResponse response;
+		try {
+			response = alipayClient.execute(request);
+			if (response.isSuccess()) {
+				System.out.println("调用成功");
+				Map<String, String> responseParams = response.getParams();
+				return responseParams.get("refund_no");// 支付宝退款流水
+			} else {
+				System.out.println("调用失败");
+				return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
+			}
+		} catch (AlipayApiException e) {
+			logger.error("调用订单退款api接口AlipayApiException异常", e);
 		}
+		return null;
 	}
 
 }

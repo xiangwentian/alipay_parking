@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
@@ -25,8 +27,10 @@ import com.alipay.api.response.AlipaySystemOauthTokenResponse;
 import com.alipay.parking.common.AliPayUtil;
 import com.alipay.parking.service.integration.IAlipayParking;
 
-@Service
+@Service("iAlipayParking")
 public class AlipayParkingImpl implements IAlipayParking {
+
+	private static final Logger logger = LoggerFactory.getLogger("parking");// 信息日志
 
 	@Resource(name = "aliPayUtil")
 	private AliPayUtil aliPayUtil;
@@ -48,7 +52,8 @@ public class AlipayParkingImpl implements IAlipayParking {
 			// 注:非必填项可用双绰号""代替
 			param.put("parking_id", params.get("parking_id"));// 停车场id
 			param.put("car_number", params.get("car_number"));// 车牌号
-			param.put("in_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd  HH:mm:ss"
+			param.put("in_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd
+													// HH:mm:ss"
 
 			// 参数需要再填写
 			System.out.println("组织的参数json形式：" + JSONObject.toJSONString(param));
@@ -68,7 +73,9 @@ public class AlipayParkingImpl implements IAlipayParking {
 				System.out.println("调用失败");
 			}
 		} catch (AlipayApiException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+			// 优化e.printStackTrace()异常的输出，改为业务描述类提示
+			logger.error("调用车辆入场api接口AlipayApiException异常", e);
 		}
 		return invokeStatus;
 	}
@@ -87,7 +94,8 @@ public class AlipayParkingImpl implements IAlipayParking {
 			// 注:非必填项可用双绰号""代替
 			param.put("parking_id", params.get("parking_id"));// 停车场id
 			param.put("car_number", params.get("car_number"));// 车牌号
-			param.put("out_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd HH:mm:ss"
+			param.put("out_time", sf.format(date));// 上送车辆的时间，格式"yyyy-MM-dd
+													// HH:mm:ss"
 
 			// 参数需要再填写
 			System.out.println("组织的参数json形式：" + JSONObject.toJSONString(param));
@@ -104,7 +112,8 @@ public class AlipayParkingImpl implements IAlipayParking {
 				System.out.println("调用失败");
 			}
 		} catch (AlipayApiException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+			logger.error("调用车辆出场api接口AlipayApiException异常", e);
 		}
 
 		return null;
@@ -154,7 +163,8 @@ public class AlipayParkingImpl implements IAlipayParking {
 				}
 			}
 		} catch (AlipayApiException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+			logger.error("调用车牌查询api接口AlipayApiException异常", e);
 		}
 		return null;
 	}
@@ -205,7 +215,8 @@ public class AlipayParkingImpl implements IAlipayParking {
 				System.out.println("调用失败");
 			}
 		} catch (AlipayApiException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+			logger.error("调用订单同步api接口AlipayApiException异常", e);
 		}
 		return null;
 	}

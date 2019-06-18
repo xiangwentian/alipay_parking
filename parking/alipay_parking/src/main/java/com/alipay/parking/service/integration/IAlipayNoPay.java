@@ -16,7 +16,7 @@ public interface IAlipayNoPay {
 	 * @return 车牌代扣状态，0：为支持代扣，1：为不支持代扣
 	 * @throws Exception
 	 */
-	public String carAgreementQuery(String carNumber) throws Exception;
+	public String carAgreementQuery(String carNumber);
 
 	/**
 	 * @Description:代扣接口
@@ -24,7 +24,7 @@ public interface IAlipayNoPay {
 	 * @param params把参数封装成map放到集合中
 	 * @return
 	 */
-	public String parkingOrderPay(Map<String, String> params) throws Exception;
+	public String parkingOrderPay(Map<String, String> params);
 
 	/**
 	 * @Description:代扣状态查询接口
@@ -35,7 +35,7 @@ public interface IAlipayNoPay {
 	 * @return 返回的信息只需要一个状态值即可，没必要返回平台的一系列数据到上层逻辑
 	 * @throws Exception
 	 */
-	public String parkingOrderQuery(Map<String, String> params) throws Exception;
+	public String parkingOrderQuery(Map<String, String> params);
 
 	/**
 	 * @Description:代扣退款接口
@@ -47,6 +47,6 @@ public interface IAlipayNoPay {
 	 * @return 只需要关系退款是否成功即可
 	 * @throws Exception
 	 */
-	public String parkingOrderRefund(Map<String, String> params) throws Exception;
+	public String parkingOrderRefund(Map<String, String> params);
 
 }
