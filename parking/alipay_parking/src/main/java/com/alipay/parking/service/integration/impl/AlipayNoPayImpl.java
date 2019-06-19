@@ -93,6 +93,7 @@ public class AlipayNoPayImpl implements IAlipayNoPay {
 				return responseParams.get("trade_no");// 当交易不明确时是拿不到这个交易号的，需要再进行查询
 			} else {
 				System.out.println("调用失败");
+				// 如果返回结果不明确的可以延时2秒调用一下查询接口确认一下最终的状态
 				return "invoke error";// 这里只是提供一个思路具体可以自行定义处理
 			}
 		} catch (AlipayApiException e) {
